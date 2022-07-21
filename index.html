@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title>자기소개페이지</title>
     <link rel="stylesheet" href="index.css" />
   </head>
@@ -9,12 +10,21 @@
     <div class="container">
       <header>
         <h1 class="logo">About me</h1>
-        <nav>
+        <div>
           <ul>
             <li><a href="#my_info">my_info</a></li>
             <li><a href="#intro">detail</a></li>
+            <li class="sub">menu
+              <ul>
+                <li>sub_menu1</li>
+                <li>sub_menu2</li>
+                <li>sub_menu3</li>
+                <li>sub_menu4</li>
+              </ul>
+            </li>
+            
           </ul>
-        </nav>
+        </div>
       </header>
       <section >
         <div id ="my_info">
@@ -32,30 +42,11 @@
       <section id="intro">
         <div class="tabs">
           <ul class="tabs-list">
-            <li class="active"><a href="#tab3">소개</a></li>
+            <li class="active"><a href="#tab1">소개</a></li>
             <li><a href="#tab2">관심 기술</a></li>
-            <li><a href="#tab1">관심 직무</a></li>
+            <li><a href="#tab3">관심 직무</a></li>
           </ul>
-          <div id="tab1" class="tab">
-            <h3>관심 직무</h3>
-            <p>
-              <ul>
-                <li>💚 프론트엔드</li>
-                <li>💚 데이터 사이언스</li>
-              </ul>
-            </p>
-          </div>
-          <div id="tab2" class="tab">
-            <h3>관심 기술</h3>
-            <p>
-              <ul>
-                <li>💛 Python</li>
-                <li>💛 JavaScript</li>
-                <li><a href= "https://developer.mozilla.org/ko/docs/Web/CSS">💛 css</li></a>
-              </ul>
-            </p>
-          </div>
-          <div id="tab3" class="tab active">
+          <div id="tab1" class="tab active">
             <h3>소개</h3>
             <div class="parent">
               <details class="child">
@@ -75,6 +66,43 @@
                 </p>
               </details>
             </div>
+          </div>
+          <div id="tab2" class="tab">
+            <h3>
+              <div>관심 기술</div>
+              <div id="plus">+</div>
+              <div>
+                <form id="addform">
+                  <input type="text" id="item"/>
+                  <input type="submit" value="추가"/>
+                </form>
+              </div>
+            </h3>
+            <p>
+              <ul id="items" class="list-group">
+                <li class="list-group-item">💛 Python
+                  <button class="btn btn-danger btn-sm float-right delete">삭제</button>
+                </li>
+                <li class="list-group-item">💛 JavaScript
+                  <button class="btn btn-danger btn-sm float-right delete">삭제</button>
+                </li>
+                <li><a href= "https://developer.mozilla.org/ko/docs/Web/CSS">💛 css</a>
+                  <button class="btn btn-danger btn-sm float-right delete">삭제</button>
+                </li>
+              </ul>
+            </p>
+          </div>
+          <div id="tab3" class="tab">
+            <h3>
+              <div>관심 직무</div>
+              <div id="plus">+</div>
+            </h3>
+            <p>
+              <ul>
+                <li>💚 프론트엔드</li>
+                <li>💚 데이터 사이언스</li>
+              </ul>
+            </p>
           </div>
         </div>
       </section>

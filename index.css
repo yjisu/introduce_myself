@@ -4,8 +4,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Noto Serif KR', serif;
-    
-    
 }
 
 ol, ul {
@@ -15,19 +13,29 @@ img {
     vertical-align: middle;
     border: none;
 }
-
 a {
     text-decoration: none;
 }
-
 .container {
     width: 1024px;
     margin: 0 auto;
-
     border: solid #eaeaea 1px;
 }
-
-
+@media (min-width: 500px) and (max-width: 800px) {
+    .container {
+      width: 500px;
+      height: 100px;
+    }
+    header h1{
+        font-size: 16px;
+    }
+    header{
+        font-size: 13px;
+    }
+    section{
+        font-size: 12px;
+    }
+}
 /*************
 *** Header ***
 *************/
@@ -35,13 +43,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     width: 100%;
     height: 77px;
     background-color: #649599;
-
     padding: 10px 20px;
-
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -49,23 +54,36 @@ header h1 {
     float: left;
 }
 
-header nav {
+header div {
     float: right;
 }
-
 header ul li {
     display:inline-block;
     margin-right: 32px;
+    width: 90px;
+    text-align: center;
+    position: relative;
+    line-height: 35px;
 }
-header ul li:last-child {
-    margin-right: 0;
-}
-
 header ul li a {
     color: #4c4c4c;
 }
-
-
+.sub ul{
+    position: absolute;
+    display: none;
+    width: 90px;
+    padding: auto;
+    height: 100px;
+    z-index: 1;
+}
+.sub:hover ul{
+    display: block;
+}
+.sub>ul>li:hover{
+    color: #c1edf3;
+    background-color: #385558;
+    transition: ease 1s;
+}
 /*************
 *** Section ***
 *************/
@@ -80,8 +98,36 @@ section #my_info{
     display: flex;
     margin-left: 60px;
 }
-.info{
+section h3 div{
+    display: inline;
+}
+input[value="추가"]{
+    background-color: #d0796b;
+    border-radius: 1rem;
+    border:none;
+    width: 50px;
+    cursor: pointer;
+}
+button{
+    background-color: #d0796b;
+    border-radius: 1rem;
+    border:none;
+    width: 30px;
+    font-size: 9px;
+    cursor: pointer;
+}
+
+#plus{
+    color: #8a291a;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
     
+}
+#addform{
+    display: none;
+}
+.info{
     flex:2;
 }
 .info p{
@@ -118,8 +164,6 @@ summary::marker{
     content: "✨";
 }
 
-
-
 /*************
 *** footer ***
 *************/
@@ -141,8 +185,6 @@ summary::marker{
     padding: 32px 0 0 40px;
 }
 
-
-
 /***********
 *** Tabs ***
 ***********/
@@ -154,9 +196,7 @@ summary::marker{
 .tabs .tabs-list li{
     float:left;
     width: 33.3333%;
-
     padding:10px 5px;
-
     text-align: center;
     background-color: #d0796b;
 }
@@ -173,32 +213,25 @@ summary::marker{
 /* Tab Content */
 .tabs .tab{
     display:none;
-
     width: 100%;
     min-height:250px;
     height:auto;
-
     padding:20px 32px;
-
     background-color: #efbfa5;
     color:#333;
     clear:both;
 }
-
 .tabs .tab h3{
     border-bottom:3px dotted #d0796b;
     letter-spacing:1px;
     font-weight:normal;
     padding:5px;
-
     margin-bottom: 12px;
 }
-
 .tabs .tab p{
     line-height:24px;
     letter-spacing: 1px;
 }
-
 /* Tab Active */
 .active{
     display:block !important;
