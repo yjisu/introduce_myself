@@ -13,8 +13,9 @@ img {
     vertical-align: middle;
     border: none;
 }
-a {
+a:link,a:visited,a:active {
     text-decoration: none;
+    color: black;
 }
 .container {
     width: 1024px;
@@ -68,18 +69,19 @@ header ul li {
 header ul li a {
     color: #4c4c4c;
 }
+/*드롭다운 메뉴만들기*/
 .sub ul{
     position: absolute;
     display: none;
     width: 90px;
     padding: auto;
     height: 100px;
-    z-index: 1;
+    z-index: 1; /*가장 앞으로 가져오기*/
 }
 .sub:hover ul{
     display: block;
 }
-.sub>ul>li:hover{
+.sub>ul>li:hover,.sub>ul>li>a:hover{
     color: #c1edf3;
     background-color: #385558;
     transition: ease 1s;
@@ -101,6 +103,10 @@ section #my_info{
 section h3 div{
     display: inline;
 }
+/*아이템 추가*/
+#addformTech, #addformJob{
+    display: none;
+}
 input[value="추가"]{
     background-color: #d0796b;
     border-radius: 1rem;
@@ -116,16 +122,12 @@ button{
     font-size: 9px;
     cursor: pointer;
 }
-
-#plus{
+#plus_tech, #plus_job{
     color: #8a291a;
     font-weight: bold;
     font-size: 20px;
     cursor: pointer;
-    
-}
-#addform{
-    display: none;
+    background-color:transparent; /*배경색 투명*/
 }
 .info{
     flex:2;

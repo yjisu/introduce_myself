@@ -1,14 +1,14 @@
-var links = document.querySelectorAll('.tabs-list li a');
-var items = document.querySelectorAll('.tabs-list li');
-for (var i = 0; i < links.length; i++) {
+let links = document.querySelectorAll('.tabs-list li a');
+let items = document.querySelectorAll('.tabs-list li');
+for (let i = 0; i < links.length; i++) {
     links[i].onclick = function(e) {
         e.preventDefault() ;
     }
 }
 
-for (var i = 0; i < items.length; i++) {
+for (let i = 0; i < items.length; i++) {
     items[i].onclick = function() {
-        var tabId = this.querySelector("a").getAttribute("href") ;
+        let tabId = this.querySelector("a").getAttribute("href") ;
         console.log(this.classList);
         document.querySelectorAll(".tabs-list li, .tabs div.tab").forEach(function(item) {
             item.classList.remove("active");
@@ -18,41 +18,85 @@ for (var i = 0; i < items.length; i++) {
         this.classList.add("active");
     }  
 } 
-const form = document.getElementById("addform");
-const itemList=document.getElementById("items");
+const formTech = document.getElementById("addformTech");
+const formJob = document.getElementById("addformJob");
+const itemTechList=document.getElementById("itemsTech");
+const itemJobList=document.getElementById("itemsJob");
+const plusJobBtn = document.getElementById('plus_job');
+const plusTechBtn = document.getElementById('plus_tech');
 //+누르면 form창 나오기
-window.addEventListener('load',function(){
-    var showForm= document.getElementById("plus");
-    showForm.onclick=show;
-});
-function show(){
-    form.style.display='block';
+function tech_form(){
+    if(formTech.style.display!=='none')
+    {
+        formTech.style.display='none';
+    }else{
+        formTech.style.display='block';
+    }
+    
+}
+function Job_form(){
+    if(formJob.style.display!=='none')
+    {
+        formJob.style.display='none';
+    }else{
+        formJob.style.display='block';
+    }
 }
 
-//form으로 item 추가 및 삭제
-function addItem(e){
+plusTechBtn.addEventListener('click',tech_form);
+plusJobBtn.addEventListener('click',Job_form);
+
+//form으로 Techitem 추가 및 삭제
+function addTechItem(e){
     e.preventDefault();
-    var newItem = document.getElementById("item").value;
+    var newItem = document.getElementById("itemTech").value;
     var li = document.createElement("li");
-    li.className="list-group-item";
+    li.className="list-Tech-item";
     li.appendChild(document.createTextNode(`💛 ${newItem} `));
-    form.reset();
+    formTech.reset();
     
     var deleteButton=document.createElement("button");
-    deleteButton.className = "btn btn-danger btn-sm float-right delete";
+    deleteButton.className = "Tech Delete";
     deleteButton.appendChild(document.createTextNode("삭제"));
     li.appendChild(deleteButton);
-    itemList.appendChild(li);
+    itemTechList.appendChild(li);
 }
 
-form.addEventListener("submit",addItem);
-itemList.addEventListener("click", removeItem);
+formTech.addEventListener("submit",addTechItem);
+itemTechList.addEventListener("click", removeTechItem);
 
-function removeItem(e) {
-    if (e.target.classList.contains("delete")) {
+function removeTechItem(e) {
+    if (e.target.classList.contains("Delete")) {
       if (confirm("삭제하시겠습니까?")) {
         var li = e.target.parentElement;
-        itemList.removeChild(li);
+        itemTechList.removeChild(li);
+      }
+    }
+}
+//form으로 Jobitem 추가 및 삭제
+function addJobItem(e){
+    e.preventDefault();
+    var newItem = document.getElementById("itemJob").value;
+    var li = document.createElement("li");
+    li.className="list-Job-item";
+    li.appendChild(document.createTextNode(`💚 ${newItem} `));
+    formJob.reset();
+    
+    var deleteButton=document.createElement("button");
+    deleteButton.className = "Job Delete";
+    deleteButton.appendChild(document.createTextNode("삭제"));
+    li.appendChild(deleteButton);
+    itemJobList.appendChild(li);
+}
+
+formJob.addEventListener("submit",addJobItem);
+itemJobList.addEventListener("click", removeJobItem);
+
+function removeJobItem(e) {
+    if (e.target.classList.contains("Delete")) {
+      if (confirm("삭제하시겠습니까?")) {
+        var li = e.target.parentElement;
+        itemJobList.removeChild(li);
       }
     }
 }

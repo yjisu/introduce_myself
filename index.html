@@ -16,13 +16,12 @@
             <li><a href="#intro">detail</a></li>
             <li class="sub">menu
               <ul>
-                <li>sub_menu1</li>
+                <li><a href="post.html">방명록</a></li>
                 <li>sub_menu2</li>
                 <li>sub_menu3</li>
                 <li>sub_menu4</li>
               </ul>
             </li>
-            
           </ul>
         </div>
       </header>
@@ -35,7 +34,6 @@
             <p>이름: 양지수</p>
             <p id="email">이메일: yangjisue@naver.com</p>
             <p id="github">GitHub: https://github.com/yjisu</p>
-            
           </div>
         </div>
       </section>
@@ -70,24 +68,24 @@
           <div id="tab2" class="tab">
             <h3>
               <div>관심 기술</div>
-              <div id="plus">+</div>
+              <button type="button" id="plus_tech">+</button>
               <div>
-                <form id="addform">
-                  <input type="text" id="item"/>
+                <form id="addformTech">
+                  <input type="text" id="itemTech"/>
                   <input type="submit" value="추가"/>
                 </form>
               </div>
             </h3>
             <p>
-              <ul id="items" class="list-group">
-                <li class="list-group-item">💛 Python
-                  <button class="btn btn-danger btn-sm float-right delete">삭제</button>
+              <ul id="itemsTech" class="list-Tech">
+                <li class="list-Tech-item">💛 Python
+                  <button class="Tech Delete">삭제</button>
                 </li>
-                <li class="list-group-item">💛 JavaScript
-                  <button class="btn btn-danger btn-sm float-right delete">삭제</button>
+                <li class="list-Tech-item">💛 JavaScript
+                  <button class="Tech Delete">삭제</button>
                 </li>
                 <li><a href= "https://developer.mozilla.org/ko/docs/Web/CSS">💛 css</a>
-                  <button class="btn btn-danger btn-sm float-right delete">삭제</button>
+                  <button class="Tech Delete">삭제</button>
                 </li>
               </ul>
             </p>
@@ -95,12 +93,22 @@
           <div id="tab3" class="tab">
             <h3>
               <div>관심 직무</div>
-              <div id="plus">+</div>
+              <button type="button" id="plus_job">+</button>
+              <div>
+                <form id="addformJob">
+                  <input type="text" id="itemJob"/>
+                  <input type="submit" value="추가"/>
+                </form>
+              </div>
             </h3>
             <p>
-              <ul>
-                <li>💚 프론트엔드</li>
-                <li>💚 데이터 사이언스</li>
+              <ul id="itemsJob" class="list-Job">
+                <li class="list-Job-item">💚 프론트엔드
+                  <button class="Job Delete">삭제</button>
+                </li>
+                <li class="list-Job-item">💚 데이터 사이언스
+                  <button class="Job Delete">삭제</button>
+                </li>
               </ul>
             </p>
           </div>
